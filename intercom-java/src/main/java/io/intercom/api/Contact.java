@@ -208,6 +208,7 @@ public class Contact extends TypedData implements Replier {
             final ContactUpdate contactUpdate = new ContactUpdate();
             contactUpdate.id = c.getID(); // propagated, noset
             contactUpdate.userID = c.getUserID(); // propagated, noset
+            contactUpdate.externalID = c.getExternalID(); // propagated, noset
             contactUpdate.email = c.getEmail();
             contactUpdate.phone = c.getPhone();
             contactUpdate.name = c.getName();
@@ -228,6 +229,9 @@ public class Contact extends TypedData implements Replier {
 
         @JsonProperty("user_id")
         private String userID;
+
+        @JsonProperty("external_id")
+        private String externalID;
 
         @JsonProperty("email")
         private String email;
@@ -347,6 +351,9 @@ public class Contact extends TypedData implements Replier {
 
     @JsonProperty("user_id")
     private String userID;
+
+    @JsonProperty("external_id")
+    private String externalID;
 
     @JsonProperty("email")
     private String email;
@@ -475,6 +482,15 @@ public class Contact extends TypedData implements Replier {
 
     public String getUserID() {
         return userID;
+    }
+
+    public String getExternalID() {
+        return externalID;
+    }
+
+    public Contact setExternalID(String externalID) {
+        this.externalID = externalID;
+        return this;
     }
 
     public Contact setUserID(String userID) {
